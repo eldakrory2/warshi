@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html dir="rtl" lang="ar">
 <head>
 <meta charset="utf-8"/>
@@ -887,7 +886,7 @@
     }
     h2{
       border: 10px yellow solid;
-      width: 500px;
+      width: 600px;
       text-align: center;
       margin-right: 100px;
       padding: 10px;
@@ -933,6 +932,112 @@
       background: #d32f2f !important;
       margin-left: 10px;
     }
+    .container {
+            width: 100%;
+            height: 100vh;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+        }
+
+        .content {
+            flex: 1;
+            color: #f5f5f5;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(135deg, hsl(123, 95%, 32%), hsl(143, 85%, 35%));
+            z-index: 2;
+        }
+
+        /* نمط زر التواصل */
+        .contact-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #4CAF50;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 60px;
+            font-size: 24px;
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        
+        .contact-btn:hover {
+            transform: scale(1.1);
+            background-color: #45a049;
+        }
+        
+        /* نمط نموذج الاتصال المعدل حسب الملف الأصلي */
+        .contact-form {
+            background: #f00303e6;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        
+        .contact-form h2 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 16rem;
+        }
+        
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 70%;
+            color: #e0e0e0;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 20px;
+            color: #e0e0e0;
+            transition: all 0.3s;
+            background-color: hwb(272 0% 70% / 0.8);
+        }
+        
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            border-color: hsl(0, 85%, 5%);
+            color: #e0e0e0;
+            outline: none;
+            box-shadow: 0 0 10px rgba(255,107,107,0.3);
+        }
+        h2{
+            text-align: center;
+            font-size: xx-large;
+        }
+        
+        .contact-form button {
+            background-color: #1f0202;
+            color: hsl(0, 17%, 94%);
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: all 0.3s;
+            width: auto;
+            display: inline-block;
+        }
+        
+        .contact-form button:hover {
+            background-color: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
   </style>
 </head>
 <body>
@@ -946,7 +1051,7 @@
 <a href="#women">قسم تجارة العدد والادوات وقطع غيار</a>
 <a href="#kids">خدمات مصرفية أمن ونظافة </a>
 <a href="#clock">الساعة</a>
-<a href="#" id="saveBtn">💾 حفظ البيانات</a>
+<a href="#slide" >💾 تواصل معنا</a>
 <a href="#" id="loadBtn">🔄 استرجاع البيانات</a>
 </nav>
 <!-- سلة التسوق المحسنة -->
@@ -977,7 +1082,7 @@
 <!-- قسم تجارة العدد والادوات وقطع غيار-->
 <section class="section" id="women">
 <h2>💾 قسم تجارة العدد والادوات وقطع غيار</h2>
-<div class="products" id="menProducts"></div>
+<div class="products" id="womenProducts"></div>
 <!-- المنتجات ستضاف هنا تلقائيا -->
 </section>
 <!-- خدمات مصرفية أمن ونظافة -->
@@ -1059,8 +1164,39 @@
 <div class="footer">
     جميع الحقوق محفوظة © متجر علي بابا أحمد الدكروري 2025
     <br/>
-<span style="font-size:0.9em;">تليفون: 01221152075 - 01500053127</span>
+    <section id="slide">
+    <div class="slide">
+      <div class="content">
+          <div class="contact-form-container">
+              <h2>تواصل معنا</h2>
+              <form id="contactForm" class="contact-form">
+                  <div class="form-group">
+                      <label for="name">الاسم الكامل</label>
+                      <input type="text" id="name" name="name" placeholder="أدخل اسمك الكامل" required>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="phone">رقم الهاتف</label>
+                      <input type="tel" id="phone" name="phone" placeholder="أدخل رقم هاتفك" required>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="subject">الموضوع</label>
+                      <select id="subject" name="subject" required>
+                          <option value="">اختر موضوع الرسالة</option>
+                          <option value="استفسار">استفسار</option>
+                          <option value="طلب عرض">طلب عرض</option>
+                          <option value="شكوى">شكوى</option>
+                          <option value="اقتراح">اقتراح</option>
+                      </select>
+                  </div> 
+                  <button type="submit" class="submit-btn">إرسال الرسالة <i class="fas fa-paper-plane"></i></button>
+              </form>
+          </div>
+      </div>
+      <div class="image-container">
 </div>
+</section>
 <script>
     // متغيرات التطبيق
     let products = {
@@ -1130,36 +1266,31 @@
     }
 
     // دالة لعرض المنتجات في قسم معين
-    
-    // تعديل دالة renderProducts لإضافة المربع
-    
-            
-    // تعديل دالة renderProducts
-  function renderProducts(sectionId) {
-    const container = document.getElementById(`${sectionId}Products`);
-    container.innerHTML = '';
-    
-    products[sectionId].forEach(product => {
-      const productHTML = `
-        <div class="product" 
-             data-id="${product.id}" 
-             data-section="${sectionId}"
-             data-images='${JSON.stringify(product.images)}' 
-             data-desc="${product.description.replace(/"/g, '&quot;')}"
-             data-sizes="${product.sizes}">
-          <input type="checkbox" class="product-checkbox" data-id="${product.id}" 
-                 onclick="event.stopPropagation()">
-                 <div class="product-id">${product.id}</div>
-            <img src="${product.images[0]}" alt="${product.name}">
-            <div class="size-tooltip">المقاسات: ${product.sizes}</div>
-            <h3>${product.name}</h3>
-            <p class="price">السعر: ${product.price} جنيه</p>
-            <button onclick="addToCart(${product.id}, '${sectionId}')">🛒 أضف إلى السلة</button>
-          </div>
-        `;
-        container.innerHTML += productHTML;
-      });
-    }
+    function renderProducts(sectionId) {
+      const container = document.getElementById(`${sectionId}Products`);
+      container.innerHTML = '';
+      
+      products[sectionId].forEach(product => {
+        const productHTML = `
+          <div class="product" 
+               data-id="${product.id}" 
+               data-section="${sectionId}"
+               data-images='${JSON.stringify(product.images)}' 
+               data-desc="${product.description.replace(/"/g, '&quot;')}"
+               data-sizes="${product.sizes}">
+            <input type="checkbox" class="product-checkbox" data-id="${product.id}" 
+                   onclick="event.stopPropagation()">
+                   <div class="product-id">${product.id}</div>
+              <img src="${product.images[0]}" alt="${product.name}">
+              <div class="size-tooltip">المقاسات: ${product.sizes}</div>
+              <h3>${product.name}</h3>
+              <p class="price">السعر: ${product.price} جنيه</p>
+              <button onclick="addToCart(${product.id}, '${sectionId}')">🛒 أضف إلى السلة</button>
+            </div>
+          `;
+          container.innerHTML += productHTML;
+        });
+      }
          
 
   // إضافة حدث منع الانتشار للنقر على المربع
@@ -1641,51 +1772,122 @@
     updateClock();
   
 
-
 async function loadProductsFromSheet() {
-  const url = "https://opensheet.elk.sh/14PagQwAs6PDFYloRNQL6GBYcf7liw3QwWn7oc57PK1s/products";
-  const response = await fetch(url);
-  const data = await response.json();
+  try {
+    const url = "https://opensheet.elk.sh/14PagQwAs6PDFYloRNQL6GBYcf7liw3QwWn7oc57PK1s/products";
+    const response = await fetch(url);
+    const data = await response.json();
 
-  if (!Array.isArray(data)) {
-    console.error("البيانات غير صالحة:", data);
-    return;
-  }
+    if (!Array.isArray(data)) {
+      console.error("البيانات غير صالحة:", data);
+      return;
+    }
 
-  products = { men: [], women: [], kids: [] };
+    // إعادة تهيئة المنتجات
+    products = { men: [], women: [], kids: [] };
 
-  data.forEach(item => {
-    const images = [item["main_image"], ...(item["images"] ? item["images"].split(',') : [])].map(img => {
-      if (img.includes("drive.google.com")) {
-        const match = img.match(/\/d\/([a-zA-Z0-9_-]+)/);
-        if (match) return `https://drive.google.com/thumbnail?id=${match[1]}&sz=w1000`;
-      }
-      return img;
-    });
-
+    // تعيين أكثر دقة للأقسام
     const sectionMap = {
       "Electronics & Software": "men",
       "Tools & Spare Parts": "women",
-      "Financial, Security &Cleaning": "kids"
+      "Financial, Security & Cleaning": "kids",
+      // أسماء بديلة قد تظهر في البيانات
+      "إلكترونيات وبرمجيات": "men",
+      "عدد وقطع غيار": "women",
+      "خدمات مصرفية وأمن ونظافة": "kids"
     };
 
-    const sectionKey = sectionMap[item["section"]?.trim()] || "men";
+    data.forEach(item => {
+      try {
+        // معالجة الصور
+        const images = [item["main_image"], ...(item["images"] ? item["images"].split(',') : [])]
+          .filter(img => img && img.trim())
+          .map(img => {
+            img = img.trim();
+            if (img.includes("drive.google.com")) {
+              const match = img.match(/\/d\/([a-zA-Z0-9_-]+)/) || 
+                           img.match(/id=([a-zA-Z0-9_-]+)/) ||
+                           img.match(/\/uc\?id=([a-zA-Z0-9_-]+)/);
+              if (match && match[1]) {
+                return `https://drive.google.com/thumbnail?id=${match[1]}&sz=w1000`;
+              }
+            }
+            return img;
+          });
 
-    const product = {
-      id: parseInt(item["id"]),
-      name: item["name"],
-      price: parseFloat(item["price"]),
-      description: item["description"],
-      images: images,
-      sizes: item["description"] || ""
-    };
+        // تحديد القسم
+        let sectionKey = "men"; // افتراضي
+        const itemSection = item["section"]?.trim();
+        
+        if (itemSection) {
+          // البحث عن أفضل تطابق
+          for (const [key, value] of Object.entries(sectionMap)) {
+            if (itemSection.replace(/\s+/g, '').toLowerCase() === key.replace(/\s+/g, '').toLowerCase()) {
+              sectionKey = value;
+              break;
+            }
+          }
+        }
 
-    products[sectionKey].push(product);
-  });
+        // إنشاء المنتج
+        const product = {
+          id: parseInt(item["id"]) || ++lastProductId,
+          name: item["name"] || "منتج بدون اسم",
+          price: parseFloat(item["price"]) || 0,
+          description: item["description"] || "لا يوجد وصف",
+          images: images.length ? images : ["https://via.placeholder.com/300?text=No+Image"],
+          sizes: item["sizes"] || "غير محدد"
+        };
 
-  renderAllProducts();
+        // إضافة المنتج إلى القسم المناسب
+        if (products[sectionKey]) {
+          products[sectionKey].push(product);
+        } else {
+          console.warn(`قسم غير معروف: ${sectionKey}، تم إضافة المنتج إلى قسم الرجال كإفتراضي`);
+          products.men.push(product);
+        }
+
+        // تحديث آخر معرف منتج
+        if (product.id > lastProductId) {
+          lastProductId = product.id;
+        }
+      } catch (error) {
+        console.error("خطأ في معالجة المنتج:", item, error);
+      }
+    });
+
+    renderAllProducts();
+    showAlert("تم تحميل المنتجات بنجاح", "success");
+  } catch (error) {
+    console.error("فشل في تحميل المنتجات:", error);
+    showAlert("فشل في تحميل المنتجات من جدول البيانات", "error");
+  }
 }
+
+
+// تحميل المنتجات عند بدء الصفحة
 document.addEventListener('DOMContentLoaded', loadProductsFromSheet);
+  // معالجة نموذج الاتصال - مطابق للملف الأصلي
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const data = new FormData(form);
+
+            fetch("https://script.google.com/macros/s/AKfycbxBbWZmKgRfp_ajFc0znyKeINqHOfN5iXrHKUat_2UtAIlE4fvxOH-Dxs8X7wd7iF90/exec", {
+                method: "POST",
+                body: data
+            })
+            .then(response => response.text())
+            .then(result => {
+                alert("✅ تم إرسال رسالتك بنجاح!");
+                form.reset();
+            })
+            .catch(error => {
+                alert("❌ حدث خطأ أثناء الإرسال، حاول لاحقًا.");
+                console.error(error);
+            });
+        });
 </script>
 </body>
 </html>
