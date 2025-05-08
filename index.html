@@ -603,7 +603,6 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
       padding: 10px;
       z-index: 95;
-      display: none;
     }
     
     .action-menu button {
@@ -1299,7 +1298,7 @@
     // دالة لإضافة منتج جديد
     function addProduct(sectionId) {
       const name = document.querySelector(`#${sectionId} input[type="text"]`).value;
-      const price = parseFloat(document.querySelector(`#${sectionId} input[type="number"]`).value;
+      const price = parseFloat(document.querySelector(`#${sectionId} input[type="number"]`).value);
       const description = document.querySelector(`#${sectionId} textarea`).value;
       const mainImageUrl = document.querySelector(`#${sectionId} input[placeholder="رابط الصورة الرئيسية"]`).value;
       const additionalImages = document.querySelector(`#${sectionId} input[placeholder="روابط صور إضافية (مفصولة بفاصلة)"]`).value;
@@ -1697,7 +1696,7 @@
       document.querySelector('.close-invoice').addEventListener('click', closeInvoice);
 
       // أحداث الحفظ والتحميل
-      document.getElementById('saveBtn')?.addEventListener('click', saveData);
+      document.getElementById('saveBtn').addEventListener('click', saveData);
       document.getElementById('loadBtn').addEventListener('click', loadData);
 
       // أحداث أزرار الفاتورة
