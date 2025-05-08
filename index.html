@@ -603,6 +603,7 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
       padding: 10px;
       z-index: 95;
+      display: none;
     }
     
     .action-menu button {
@@ -1165,38 +1166,32 @@
     جميع الحقوق محفوظة © متجر علي بابا أحمد الدكروري 2025
     <br/>
     <section id="slide">
-    <div class="slide">
-      <div class="content">
-          <div class="contact-form-container">
-              <h2>تواصل معنا</h2>
-              <form id="contactForm" class="contact-form">
-                  <div class="form-group">
-                      <label for="name">الاسم الكامل</label>
-                      <input type="text" id="name" name="name" placeholder="أدخل اسمك الكامل" required>
-                  </div>
-                  
-                  <div class="form-group">
-                      <label for="phone">رقم الهاتف</label>
-                      <input type="tel" id="phone" name="phone" placeholder="أدخل رقم هاتفك" required>
-                  </div>
-                  
-                  <div class="form-group">
-                      <label for="subject">الموضوع</label>
-                      <select id="subject" name="subject" required>
-                          <option value="">اختر موضوع الرسالة</option>
-                          <option value="استفسار">استفسار</option>
-                          <option value="طلب عرض">طلب عرض</option>
-                          <option value="شكوى">شكوى</option>
-                          <option value="اقتراح">اقتراح</option>
-                      </select>
-                  </div> 
-                  <button type="submit" class="submit-btn">إرسال الرسالة <i class="fas fa-paper-plane"></i></button>
-              </form>
-          </div>
-      </div>
-      <div class="image-container">
-</div>
-</section>
+      <div class="slide">
+        <div class="content">
+            <div class="contact-form-container">
+                <h2>تواصل معنا</h2>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">الاسم الكامل</label>
+                        <input type="text" id="name" name="name" placeholder="أدخل اسمك الكامل" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">رقم الهاتف</label>
+                        <input type="tel" id="phone" name="phone" placeholder="أدخل رقم هاتفك" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">الموضوع</label>
+<textarea id="subject" name="subject" placeholder="اكتب موضوع رسالتك هنا (حتى 100 كلمة)" maxlength="700" rows="4" required></textarea>
+                    </div> 
+                    <button type="submit" class="submit-btn">إرسال الرسالة <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="image-container">
+  </div>
+  </section>
 <script>
     // متغيرات التطبيق
     let products = {
@@ -1304,7 +1299,7 @@
     // دالة لإضافة منتج جديد
     function addProduct(sectionId) {
       const name = document.querySelector(`#${sectionId} input[type="text"]`).value;
-      const price = parseFloat(document.querySelector(`#${sectionId} input[type="number"]`).value);
+      const price = parseFloat(document.querySelector(`#${sectionId} input[type="number"]`).value;
       const description = document.querySelector(`#${sectionId} textarea`).value;
       const mainImageUrl = document.querySelector(`#${sectionId} input[placeholder="رابط الصورة الرئيسية"]`).value;
       const additionalImages = document.querySelector(`#${sectionId} input[placeholder="روابط صور إضافية (مفصولة بفاصلة)"]`).value;
@@ -1702,7 +1697,7 @@
       document.querySelector('.close-invoice').addEventListener('click', closeInvoice);
 
       // أحداث الحفظ والتحميل
-      document.getElementById('saveBtn').addEventListener('click', saveData);
+      document.getElementById('saveBtn')?.addEventListener('click', saveData);
       document.getElementById('loadBtn').addEventListener('click', loadData);
 
       // أحداث أزرار الفاتورة
