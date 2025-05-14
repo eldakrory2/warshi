@@ -7,10 +7,10 @@
 <title>ورشة - متجر علي بابا أحمد الدكروري</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <style>
-    :root {
+   :root {
       --primary-color: #d32f2f; /* أحمر داكن */
       --secondary-color: #f44336; /* أحمر */
-      --accent-color: hsl(138, 90%, 21%); /* أزرق */
+      --accent-color: #1976d2; /* أزرق */
       --light-color: #ffcdd2; /* أحمر فاتح */
       --dark-color: #b71c1c; /* أحمر غامق */
       --text-color: #fff;
@@ -20,7 +20,7 @@
     body {
       margin: 0;
       font-family: 'Cairo', sans-serif;
-      background: #036410;
+      background: linear-gradient(to bottom, var(--dark-color), var(--primary-color));
       color: var(--text-color);
       overflow-x: hidden;
     }
@@ -32,10 +32,6 @@
       box-shadow: var(--shadow);
       position: relative;
     }
-    header h1 {
-      font-size: clamp(1.5rem, 6vw, 2.5rem);
-      padding: 0 15px;
-    }
     
     header h1 {
       margin: 0;
@@ -43,11 +39,6 @@
       color: #ffeb3b;
       text-shadow: 1px 1px 5px #000;
     }
-    nav {
-      gap: 10px;
-      padding: 8px;
-    }
-    
     
     nav {
       background-color: var(--primary-color);
@@ -56,10 +47,6 @@
       gap: 15px;
       padding: 10px;
       flex-wrap: wrap;
-    }
-    nav a {
-      padding: 6px 12px;
-      font-size: 0.9rem;
     }
     
     nav a {
@@ -77,23 +64,11 @@
       color: var(--dark-color);
       transform: translateY(-3px);
     }
-    .section {
-      padding: 15px;
-    } 
     
     .section {
       padding: 25px;
       border-top: 2px dashed var(--light-color);
       background-color: rgba(183, 28, 28, 0.1);
-      
-    }
-    .section h2 {
-      width: 90%;
-      max-width: 500px;
-      margin: 10px auto;
-      font-size: clamp(1.2rem, 5vw, 1.8rem);
-      padding: 8px;
-      border-radius: 125px;
     }
     
     .section h2 {
@@ -103,22 +78,11 @@
       text-shadow: 1px 1px 3px #000;
       font-size: 1.8em;
     }
-    .products {
-      gap: 15px;
-      padding: 5px;
-    }
     
     .products {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 20px;
-      padding: 10px;
-    }
-    .product {
-      width: calc(50% - 20px);
-      min-width: 250px;
-      margin: 10px;
       padding: 10px;
     }
     
@@ -126,7 +90,6 @@
       background-color: var(--primary-color);
       border-radius: 15px;
       padding: 15px;
-      width: 280px;
       text-align: center;
       position: relative;
       transition: all 0.3s;
@@ -138,9 +101,6 @@
     .product:hover {
       transform: translateY(-10px) scale(1.03);
       box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-    }
-    .product img {
-      height: 180px;
     }
     
     .product img {
@@ -155,9 +115,6 @@
     
     .product:hover img {
       transform: scale(1.05);
-    }
-    .product h3 {
-      font-size: 1.1rem;
     }
     
     .product h3 {
@@ -210,10 +167,6 @@
     .product:hover .size-tooltip {
       opacity: 1;
     }
-    .controls {
-      padding: 15px;
-      gap: 8px;
-    }
     
     .controls {
       margin: 25px auto;
@@ -225,15 +178,6 @@
       padding: 20px;
       border-radius: 15px;
       box-shadow: var(--shadow);
-      display: ;
-    }
-    .controls input,
-    .controls button,
-    .controls textarea,
-    .controls select {
-      width: 100%;
-      max-width: 300px;
-      font-size: 1rem;
     }
     
     .controls input, 
@@ -392,7 +336,6 @@
       border-radius: 20px;
     }
     
-    
     /* سلة التسوق المحسنة */
     .cart-icon {
       position: fixed;
@@ -432,13 +375,6 @@
       align-items: center;
       justify-content: center;
       font-weight: bold;
-    }
-    .cart-container {
-      width: 90%;
-      max-width: 320px;
-      left: 50%;
-      transform: translateX(-50%);
-      top: 70px;
     }
     
     .cart-container {
@@ -541,10 +477,6 @@
     .cart-btn:hover {
       background: #1565c0;
       transform: translateY(-3px);
-    }
-    .action-buttons {
-      bottom: 10px;
-      right: 10px;
     }
     
     /* أزرار الفاتورة المحسنة */
@@ -784,15 +716,11 @@
       background: #ff9800;
       border-left: 5px solid #f57c00;
     }
-    .gallery-img {
-      max-height: 50vh;
-    }
     
     @keyframes slideIn {
       from {right: -350px; opacity: 0;}
       to {right: 20px; opacity: 1;}
     }
-    
     
     @keyframes fadeOut {
       from {opacity: 1;}
@@ -808,60 +736,6 @@
     
     .pulse {
       animation: pulse 2s infinite;
-    }
-    @media (max-width: 768px) {
-      .product {
-        width: calc(100% - 20px);
-      }
-      header h1 {
-        font-size: 1.8rem;
-      }
-      
-      nav {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .section h2 {
-        width: 90%;
-        font-size: 1.5rem;
-        margin-right: 0;
-      }
-      
-      .controls {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .invoice-content {
-        width: 95%;
-        padding: 15px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .product-id {
-        font-size: 0.9rem;
-        padding: 5px 8px;
-      }
-      
-      .product .price {
-        font-size: 1rem;
-      }
-      
-      .cart-item {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .gallery-desc {
-        font-size: 0.9rem;
-        padding: 10px;
-      }
-      
-      .footer {
-        font-size: 0.8rem;
-      }
     }
     
     /* الطباعة */
@@ -885,73 +759,7 @@
         display: none;
       }
     }
-    h2{
-      border: 10px yellow solid;
-      width: 600px;
-      text-align: center;
-      margin-right: 100px;
-      padding: 10px;
-      font-size: 70px;
-      border-radius: 250px;
-      background-color: hwb(122 1% 76%);
-      
-    }
-    .product-checkbox {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 20px;
-      height: 20px;
-      z-index: 10;
-      accent-color: var(--accent-color);
-      cursor: pointer;
-    }
-    
-    .delete-selected {
-      background: #d32f2f !important;
-      margin-right: 10px;
-    }
-    .product-checkbox {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      width: 25px;
-      height: 25px;
-      z-index: 100;
-      cursor: pointer;
-      accent-color: var(--accent-color);
-      opacity: 0.9;
-      transform: scale(1.3);
-    }
-    
-    .product-checkbox:hover {
-      opacity: 1;
-      transform: scale(1.5);
-    }
-
-    .delete-selected {
-      background: #d32f2f !important;
-      margin-left: 10px;
-    }
-    .container {
-            width: 100%;
-            height: 100vh;
-            scroll-snap-type: y mandatory;
-            overflow-y: scroll;
-        }
-
-        .content {
-            flex: 1;
-            color: #f5f5f5;
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background: linear-gradient(135deg, hsl(123, 95%, 32%), hsl(143, 85%, 35%));
-            z-index: 2;
-        }
-
-        /* نمط زر التواصل */
+     /* نمط زر التواصل */
         .contact-btn {
             position: fixed;
             bottom: 30px;
@@ -976,62 +784,195 @@
         
         /* نمط نموذج الاتصال المعدل حسب الملف الأصلي */
         .contact-form {
-    background: #ffffff10;
-    padding: 40px;
-    border-radius: 20px;
-    max-width: 500px;
-    margin: 30px auto;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.1);
-    color: #fff;
-}
-.contact-form h2 {
-    font-size: 2em;
-    color: #ffeb3b;
-    margin-bottom: 25px;
-    text-shadow: 1px 1px 3px #000;
-}
-.contact-form label {
-    display: block;
-    margin: 15px 0 5px;
-    text-align: right;
-    font-weight: bold;
-    color: #fff;
-}
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border-radius: 10px;
-    border: none;
-    font-size: 1em;
-    background-color: rgba(255,255,255,0.1);
-    color: #fff;
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
-}
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border: 2px solid #ffeb3b;
-    background-color: rgba(255,255,255,0.2);
-}
-.contact-form button {
-    background-color: #ffeb3b;
-    color: #000;
-    padding: 12px 30px;
-    margin-top: 20px;
-    font-size: 1.1em;
-    border: none;
-    border-radius: 30px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.contact-form button:hover {
-    background-color: #fdd835;
-    transform: translateY(-2px);
-}
+            background: #f00303e6;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        
+        .contact-form h2 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 16rem;
+        }
+        
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 70%;
+            color: #e0e0e0;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 20px;
+            color: #e0e0e0;
+            transition: all 0.3s;
+            background-color: hwb(272 0% 70% / 0.8);
+        }
+        
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            border-color: hsl(0, 85%, 5%);
+            color: #e0e0e0;
+            outline: none;
+            box-shadow: 0 0 10px rgba(255,107,107,0.3);
+        }
+        h2{
+            text-align: center;
+            font-size: xx-large;
+        }
+        
+        .contact-form button {
+            background-color: #1f0202;
+            color: hsl(0, 17%, 94%);
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: all 0.3s;
+            width: auto;
+            display: inline-block;
+        }
+        
+        .contact-form button:hover {
+            background-color: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .container {
+      width: 100%;
+      height: 100vh;
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+    }
+
+    .content {
+      flex: 1;
+      color: #f5f5f5;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: linear-gradient(135deg, hsl(123, 95%, 32%), hsl(143, 85%, 35%));
+      z-index: 2;
+    }
+
+    /* نمط زر التواصل */
+    .contact-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #4CAF50;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 60px;
+      font-size: 24px;
+      z-index: 100;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: all 0.3s;
+    }
+    
+    .contact-btn:hover {
+      transform: scale(1.1);
+      background-color: #45a049;
+    }
+    
+    /* نمط نموذج الاتصال المعدل حسب الملف الأصلي */
+    .contact-form {
+      background: #ffffff10;
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 500px;
+      margin: 30px auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #fff;
+      animation: fadeInUp 0.5s;
+    }
+    .contact-form h2 {
+      font-size: 2em;
+      color: #ffeb3b;
+      margin-bottom: 25px;
+      text-shadow: 1px 1px 3px #000;
+    }
+    .contact-form label {
+      display: block;
+      margin: 15px 0 5px;
+      text-align: right;
+      font-weight: bold;
+      color: #fff;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1em;
+      background-color: rgba(255,255,255,0.1);
+      color: #fff;
+      box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+      transition: all 0.3s;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border: 2px solid #ffeb3b;
+      background-color: rgba(255,255,255,0.2);
+      transform: scale(1.01);
+    }
+    .contact-form button {
+      background-color: #ffeb3b;
+      color: #000;
+      padding: 12px 30px;
+      margin-top: 20px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .contact-form button:hover {
+      background-color: #fdd835;
+      transform: translateY(-2px);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
+    }
   </style>
 </head>
 <body>
